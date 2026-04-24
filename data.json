@@ -1,0 +1,238 @@
+{
+  "profile": {
+    "name": "Ayana Moshruba",
+    "title": "PhD Candidate, Electrical & Computer Engineering",
+    "institution": "George Mason University",
+    "location": "Fairfax, VA",
+    "photo": "assets/profile.jpg",
+    "objective": "I am a 5th-year PhD candidate at George Mason University advised by Dr. Maryam Parsa, specializing in machine learning and neuromorphic computing with a focus on privacy in Spiking Neural Networks (SNNs). My research investigates privacy attacks and defenses in neuromorphic systems, including membership inference, model inversion, and differential privacy mechanisms. I design end-to-end machine learning systems using PyTorch and TensorFlow, with hands-on experience in neuromorphic frameworks such as SNNTorch and TENNLab. I am actively seeking research and industry positions where I can apply my expertise in privacy-preserving AI, adversarial robustness, and neuromorphic computing to build secure and efficient intelligent systems."
+  },
+  "links": {
+    "email": "amoshrub@gmu.edu",
+    "phone": "571.474.6866",
+    "github": "https://github.com/AyanaMoshruba",
+    "linkedin": "https://linkedin.com/in/ayana-moshruba",
+    "scholar": "https://scholar.google.com/citations?user=AyanaMoshruba"
+  },
+  "education": [
+    {
+      "degree": "PhD in Electrical and Computer Engineering",
+      "institution": "George Mason University",
+      "location": "Fairfax, VA",
+      "period": "Jan 2022 \u2013 May 2027 (Expected)",
+      "details": "Advisor: Dr. Maryam Parsa | Thesis: Privacy Preservation in Neuromorphic Systems"
+    },
+    {
+      "degree": "MSc in Computer Engineering",
+      "institution": "George Mason University",
+      "location": "Fairfax, VA",
+      "period": "Expected May 2026",
+      "details": "Concentration: Machine Learning & Intelligent Computer Architectures"
+    },
+    {
+      "degree": "BSc in Electrical and Electronic Engineering",
+      "institution": "Islamic University of Technology",
+      "location": "Gazipur, Bangladesh",
+      "period": "Jan 2017 \u2013 Mar 2021",
+      "details": "CGPA: 3.65 | Thesis: Bangla Sign Language Recognition Using a Concatenated BdSL Network"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Privacy in Spiking Neural Networks",
+      "image": "assets/cards/privacy_snn.jpg",
+      "tags": [
+        "SNNs",
+        "Membership Inference",
+        "Privacy"
+      ],
+      "description": "Conducted a comprehensive benchmark of membership inference attacks on both SNNs and ANNs across varying model complexity levels. Demonstrated consistent and significant reductions in attack AUC under defensive conditions, including decreases from 0.82 to 0.59 and from 0.88 to 0.58 in high-complexity settings \u2014 establishing a rigorous empirical foundation for SNN privacy research."
+    },
+    {
+      "title": "Quantization and Surrogate Gradients for SNN Privacy",
+      "image": "assets/cards/quantization.jpg",
+      "tags": [
+        "Quantization",
+        "Surrogate Gradients",
+        "Privacy-Accuracy Tradeoff"
+      ],
+      "description": "Evaluated the joint effects of 2-bit, 4-bit, and 8-bit quantization combined with five distinct surrogate gradient strategies on privacy leakage in SNNs. Showed that moderate quantization meaningfully reduces membership leakage with minimal accuracy degradation. Among all evaluated strategies, Spike Rate Escape achieved the strongest privacy-accuracy trade-off, offering a practical path toward efficient and private neuromorphic models."
+    },
+    {
+      "title": "Temporal Dynamics for Private SNNs",
+      "image": "assets/cards/temporal_dynamics.jpg",
+      "tags": [
+        "Temporal Coding",
+        "Biological Plausibility",
+        "Efficiency"
+      ],
+      "description": "Developed two novel spike dynamics \u2014 Poisson-Burst and Delayed-Burst \u2014 inspired by biological neuronal firing behavior and Izhikevich neuron models. Poisson-Burst maintains model accuracy within 1 to 3% of baseline while simultaneously reducing computational cost by approximately 10 to 15%, demonstrating that biologically-inspired temporal structure can serve as both a privacy and efficiency lever."
+    },
+    {
+      "title": "Model Stealing Attacks in SNNs",
+      "image": "assets/cards/model_stealing.jpg",
+      "tags": [
+        "Model Stealing",
+        "Black-Box Attacks",
+        "Adversarial Transferability"
+      ],
+      "description": "Constructed a systematic benchmark of four distinct black-box model stealing attack strategies applied to SNN targets. Found that SNN architectures yield 10 to 20% lower surrogate model agreement and 15 to 25% lower adversarial transferability compared to equivalent ANN counterparts, providing strong evidence that neuromorphic architectures carry inherent resistance to knowledge extraction attacks."
+    },
+    {
+      "title": "Spiking Graph Neural Networks and Privacy",
+      "image": "assets/cards/graph_nn.jpg",
+      "tags": [
+        "Graph Neural Networks",
+        "SGCNs",
+        "Differential Privacy"
+      ],
+      "description": "Compared standard Graph Convolutional Networks (GCNs) and Spiking Graph Convolutional Networks (SGCNs) under membership inference attacks and structural differential privacy defenses. Observed a reduction in attack AUC from 0.76 to 0.52 \u2014 a 32% privacy improvement \u2014 with SGCNs demonstrating superior structural robustness under adversarial conditions."
+    },
+    {
+      "title": "Hippocampal-Inspired Reinforcement Learning (HAMI)",
+      "image": "assets/cards/hami_rl.jpg",
+      "tags": [
+        "Reinforcement Learning",
+        "Memory-Augmented",
+        "Sequential Decision Making"
+      ],
+      "description": "Contributed to the design and evaluation of HAMI, a memory-augmented reinforcement learning framework for sequential decision-making drawing on hippocampal memory mechanisms. The framework achieved approximately 13% improvement in decision accuracy and more than 24x faster inference relative to baseline methods, demonstrating the power of biologically-grounded architectural priors in RL."
+    },
+    {
+      "title": "iCONNECT: Clinical Treatment Network",
+      "image": "assets/cards/iconnect.jpg",
+      "tags": [
+        "Healthcare Systems",
+        "User Engagement",
+        "Behavioral Analysis"
+      ],
+      "description": "Worked on the iCONNECT platform for GMU's Center for Advancing Systems Science and Bioengineering Innovation (CASSBI), supporting individuals recovering from opioid and substance use disorder. Analyzed user engagement data from 2023 to 2025, identifying peaks of 154 monthly active users and 1,903 resource-tile interactions. Synthesized design recommendations to improve retention, navigation, and re-engagement outcomes."
+    }
+  ],
+  "publications": [
+    {
+      "title": "Are Neuromorphic Architectures Inherently Privacy-Preserving? An Exploratory Study",
+      "authors": "Ayana Moshruba, Ihsen Alouani, Maryam Parsa",
+      "venue": "PoPETs",
+      "year": "2025",
+      "image": "assets/cards/privacy_snn.jpg",
+      "tags": [
+        "Privacy",
+        "SNNs",
+        "Membership Inference"
+      ],
+      "description": "This paper presents the first systematic investigation into whether neuromorphic architectures provide inherent privacy advantages over conventional ANNs. Through controlled experiments measuring membership inference vulnerability, the study establishes empirical evidence for privacy distinctions between SNN and ANN architectures and lays the groundwork for principled privacy evaluation in neuromorphic computing.",
+      "link": null
+    },
+    {
+      "title": "On the Privacy-Preserving Properties of SNNs with Unique Surrogate Gradients and Quantization Levels",
+      "authors": "Ayana Moshruba, Shay Snyder, Hamed Poursiami, Maryam Parsa",
+      "venue": "IJCNN",
+      "year": "2025",
+      "image": "assets/cards/quantization.jpg",
+      "tags": [
+        "Quantization",
+        "Surrogate Gradients",
+        "Privacy"
+      ],
+      "description": "Presents a comprehensive analysis of how quantization precision and surrogate gradient choice interact to affect privacy leakage in spiking neural networks. The study evaluates five surrogate gradients across three quantization levels, identifying configurations that achieve favorable privacy-accuracy tradeoffs \u2014 with Spike Rate Escape emerging as the most effective combination.",
+      "link": null
+    },
+    {
+      "title": "Izhikevich-Inspired Temporal Dynamics for Enhancing Privacy, Efficiency, and Transferability in SNNs",
+      "authors": "Ayana Moshruba, Hamed Poursiami, Maryam Parsa",
+      "venue": "ICONS",
+      "year": "2025",
+      "image": "assets/cards/temporal_dynamics.jpg",
+      "tags": [
+        "Temporal Dynamics",
+        "Izhikevich",
+        "Efficiency"
+      ],
+      "description": "Proposes novel SNN temporal dynamics inspired by Izhikevich neuron models to simultaneously address privacy, computational efficiency, and adversarial transferability. The Poisson-Burst mechanism in particular maintains high accuracy while achieving meaningful reductions in computational overhead, advancing biologically-plausible neuromorphic design.",
+      "link": null
+    },
+    {
+      "title": "Edge-Private Spiking Graph Convolutional Learning: Membership Inference and Structural Differential Privacy",
+      "authors": "Ayana Moshruba, Maryam Parsa",
+      "venue": "IEEE Conference",
+      "year": "2025",
+      "image": "assets/cards/model_stealing.jpg",
+      "tags": [
+        "Graph Learning",
+        "Differential Privacy",
+        "Edge Privacy"
+      ],
+      "description": "Introduces an edge-private training framework for spiking graph convolutional networks that applies structural differential privacy to protect graph topology during learning. Demonstrates a 32% reduction in membership inference attack success over standard GCN baselines, providing a scalable solution for privacy-sensitive graph-structured data in neuromorphic systems.",
+      "link": null
+    },
+    {
+      "title": "A Scalable Reinforcement Learning Framework Inspired by Hippocampal Memory Mechanisms",
+      "authors": "Ayana Moshruba et al.",
+      "venue": "Scientific Reports",
+      "year": "2025",
+      "image": "assets/cards/graph_nn.jpg",
+      "tags": [
+        "Reinforcement Learning",
+        "Hippocampal Memory",
+        "Scalability"
+      ],
+      "description": "Presents HAMI, a biologically-inspired reinforcement learning framework that integrates hippocampal memory mechanisms for efficient contextual and sequential decision-making. Evaluated across multiple benchmarks, HAMI achieves 13% higher decision accuracy and over 24x faster inference than baseline methods, demonstrating strong scalability and biological plausibility.",
+      "link": null
+    },
+    {
+      "title": "Do Spikes Protect Privacy? Investigating Black-Box Model Inversion Attacks in SNNs",
+      "authors": "Ayana Moshruba et al.",
+      "venue": "IEEE Conference",
+      "year": "2025",
+      "image": "assets/cards/hami_rl.jpg",
+      "tags": [
+        "Model Inversion",
+        "Black-Box Attacks",
+        "Privacy"
+      ],
+      "description": "Investigates the susceptibility of spiking neural networks to black-box model inversion attacks, asking whether spike-based information encoding provides privacy guarantees against input reconstruction. Provides the first benchmark of inversion attack performance on SNN targets and compares results against ANN counterparts under matched conditions.",
+      "link": null
+    },
+    {
+      "title": "Spiking Neural Networks Are Harder to Steal: A Benchmark Study of Model Stealing Attacks",
+      "authors": "Ayana Moshruba, Maryam Parsa",
+      "venue": "Under Review",
+      "year": "2026",
+      "image": "assets/cards/iconnect.jpg",
+      "tags": [
+        "Model Stealing",
+        "Benchmark",
+        "Robustness"
+      ],
+      "description": "A systematic benchmark study establishing that SNN architectures are significantly more resistant to model stealing than equivalent ANNs. Evaluating four black-box attack strategies, the work quantifies the gap in surrogate agreement and adversarial transferability, providing guidance for practitioners seeking architectures with stronger intellectual property and knowledge-extraction protections.",
+      "link": null
+    },
+    {
+      "title": "Bangla Sign Language Recognition Using a Concatenated BdSL Network",
+      "authors": "Thasin Abedin, Khondokar Prottoy, Ayana Moshruba, Safayat Bin Hakim",
+      "venue": "CRC Press \u2014 Computer Vision and Image Analysis for Industry 4.0",
+      "year": "2021",
+      "image": "assets/cards/privacy_snn.jpg",
+      "tags": [
+        "Sign Language Recognition",
+        "Computer Vision",
+        "NLP"
+      ],
+      "description": "Presents a deep learning approach to Bangla Sign Language (BdSL) recognition using a concatenated multi-stream convolutional architecture. The framework fuses spatial and temporal features across streams to achieve robust recognition across the BdSL gesture vocabulary, contributing to accessibility technology for Bengali-speaking communities.",
+      "link": null
+    }
+  ],
+  "awards": [
+    "Graduate Research Assistantship, George Mason University (2022 \u2013 Present)",
+    "Research Fellowship (May 2024 \u2013 May 2025): Summer Research Fellowship, Center for Adaptive Systems of Brain-Body Interactions (CASBBI) National Research Traineeship (NRT) Program"
+  ],
+  "talks": [
+    {
+      "title": "Privacy Preservation in Spiking Graph Neural Networks",
+      "event": "ICEdge 2025 \u2014 International Conference on Intelligent Computing and Systems at the Edge",
+      "location": "Bangalore, India",
+      "year": "2025"
+    }
+  ]
+}
