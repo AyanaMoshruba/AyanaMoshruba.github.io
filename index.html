@@ -53,6 +53,7 @@
       min-height: 100vh;
       max-width: 1380px;
       margin: 0 auto;
+      padding-top: 0;
     }
 
     /* ── Sidebar ─────────────────────────────────────────── */
@@ -135,18 +136,16 @@
     .edu-inst   { font-size: .7rem; color: rgba(255,255,255,.4); margin-top: 2px; }
     .edu-period { font-family: var(--font-mono); font-size: .62rem; color: var(--accent); margin-top: 2px; }
 
-    .award-item {
-      font-size: .72rem; color: rgba(255,255,255,.5);
-      padding: 7px 10px; background: rgba(255,255,255,.04);
-      border-radius: 5px; border-left: 2px solid var(--accent-warm);
-      margin-bottom: 7px; line-height: 1.45;
-    }
-
     .skills-wrap { display: flex; flex-wrap: wrap; gap: 5px; }
     .skill-tag { font-size: .65rem; padding: 3px 8px; border-radius: 99px; background: rgba(255,255,255,.06); color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.09); }
 
     /* ── Main ────────────────────────────────────────────── */
-    .main { flex: 1; min-width: 0; padding: 3rem 3.5rem; }
+    .main { flex: 1; min-width: 0; }
+
+    /* Mobile nav bar — lives at top of <main>, hidden on desktop */
+    .mobile-nav {
+      display: none;
+    }
 
     /* ══════════════════════════════════════════════════════
        MOBILE  (≤ 860px)
@@ -166,59 +165,64 @@
         overflow: visible;
       }
 
+      /* Hide the desktop sidebar nav — mobile uses .mobile-nav instead */
+      .sidebar .sb-nav { display: none; }
+
       /* Profile: centered */
       .sb-profile { padding: 2rem 1.5rem 1rem; }
 
       /* Social: centered row */
       .sb-social { padding: 0 1.5rem .75rem; justify-content: center; }
 
-      /* Nav: horizontal scrollable tab strip */
-      .sb-nav {
+      /* Info sections: 2-column grid (edu full width, skills below) */
+      .sb-sections-grid {
+        background: var(--sb-deep);
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.25rem 1.75rem;
+      }
+      .sb-sections-grid .sb-divider { display: none; }
+      .sb-section { padding: 0; margin-bottom: 0; }
+      .sb-section.edu    { grid-column: 1 / -1; }
+      .sb-section.skills { grid-column: 1 / -1; }
+
+      /* Mobile nav: shown, sticky within the page scroll */
+      .mobile-nav {
+        display: flex;
         flex-direction: row;
-        padding: 0;
-        gap: 0;
-        background: var(--sb-sub);
-        border-top: 1px solid rgba(255,255,255,.06);
+        align-items: stretch;
+        background: var(--sb-bg);
+        border-bottom: 1px solid rgba(255,255,255,.08);
         overflow-x: auto;
         scrollbar-width: none;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 12px rgba(0,0,0,.3);
       }
-      .sb-nav::-webkit-scrollbar { display: none; }
-      .sb-nav-label { display: none; }
-      .nav-link {
+      .mobile-nav::-webkit-scrollbar { display: none; }
+      .mobile-nav .nav-link {
         flex: 1;
         justify-content: center;
         padding: 11px 8px;
         border-radius: 0;
         font-size: .78rem;
-        min-width: 72px;
+        min-width: 68px;
         white-space: nowrap;
         border-bottom: 2px solid transparent;
+        color: rgba(255,255,255,.55);
       }
-      .nav-link:hover, .nav-link.active {
+      .mobile-nav .nav-link:hover,
+      .mobile-nav .nav-link.active {
         background: transparent;
         border-bottom-color: var(--accent);
         color: #fff;
       }
 
-      /* Info sections: 3-column grid across full width */
-      .sb-sections-grid {
-        background: var(--sb-deep);
-        padding: 1.5rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 1.25rem 1.75rem;
-      }
-      /* Dividers hidden in grid mode */
-      .sb-sections-grid .sb-divider { display: none; }
-
-      .sb-section { padding: 0; margin-bottom: 0; }
-      .sb-section.edu    { grid-column: 1 / -1; }
-      .sb-section.awards { grid-column: 1 / 2; }
-      .sb-section.skills { grid-column: 2 / 4; }
-
       /* Main is now full width below */
-      .main { padding: 1.75rem 1.25rem; }
-    }
+      .main { padding: 0; }
+      .main-content { padding: 1.75rem 1.25rem; }    }
 
     /* Very narrow phones */
     @media (max-width: 560px) {
@@ -227,17 +231,17 @@
       .profile-placeholder i { font-size: 1.5rem; }
       .sb-name { font-size: 1.2rem; }
 
-      /* All info sections single column */
       .sb-sections-grid {
         grid-template-columns: 1fr;
         padding: 1.25rem 1rem;
         gap: 1.1rem;
       }
       .sb-section.edu,
-      .sb-section.awards,
       .sb-section.skills { grid-column: 1; }
 
-      .main { padding: 1.1rem .85rem; }
+      .mobile-nav .nav-link { font-size: .72rem; padding: 10px 6px; min-width: 58px; }
+
+      .main-content { padding: 1.1rem .85rem; }
       .hero { padding: 1.25rem !important; border-radius: var(--radius-md) !important; }
       .hero h1 { font-size: 1.45rem !important; }
       .card { grid-template-columns: 1fr !important; }
@@ -303,6 +307,34 @@
     .card-link    { display: inline-flex; align-items: center; gap: 5px; font-size: .73rem; color: var(--accent); margin-top: 5px; font-weight: 500; transition: color var(--ease); }
     .card-link:hover { color: var(--accent-2); }
 
+    /* ── Awards (main content) ───────────────────────────── */
+    .award-main-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent-warm);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.4rem;
+      font-size: .88rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+    }
+    .award-main-item::before {
+      content: '\f091';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      color: var(--accent-warm);
+      font-size: .85rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Desktop: .main-content has the padding; .main itself has none so mobile-nav can go edge-to-edge */
+    .main-content { padding: 3rem 3.5rem; }
+
     /* ── Talks ────────────────────────────────────────────── */
     .talk-item { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.2rem 1.4rem; display: flex; align-items: flex-start; gap: 1rem; box-shadow: var(--shadow-sm); }
     .talk-icon { width: 38px; height: 38px; border-radius: 9px; background: linear-gradient(135deg,#eef1fc,#dde2f2); display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: .95rem; flex-shrink: 0; }
@@ -353,26 +385,21 @@
 
     <div class="sb-social" id="socialLinks"></div>
 
+    <!-- Desktop nav (hidden on mobile, replaced by .mobile-nav in main) -->
     <nav class="sb-nav">
       <div class="sb-nav-label">Navigate</div>
       <a class="nav-link" href="#about">        <i class="fa-regular fa-user"></i>          About</a>
       <a class="nav-link" href="#projects">     <i class="fa-solid fa-flask"></i>            Projects</a>
       <a class="nav-link" href="#publications"> <i class="fa-regular fa-file-lines"></i>     Publications</a>
       <a class="nav-link" href="#talks">        <i class="fa-solid fa-microphone-lines"></i> Talks</a>
+      <a class="nav-link" href="#awards">       <i class="fa-solid fa-trophy"></i>           Awards</a>
     </nav>
 
-    <!-- On desktop these render as stacked sections.
-         On mobile the .sb-sections-grid wrapper becomes a CSS grid. -->
     <div class="sb-sections-grid">
       <div class="sb-divider"></div>
       <div class="sb-section edu">
         <div class="sb-section-title">Education</div>
         <div id="eduList"></div>
-      </div>
-      <div class="sb-divider"></div>
-      <div class="sb-section awards">
-        <div class="sb-section-title">Awards</div>
-        <div id="awardsList"></div>
       </div>
       <div class="sb-divider"></div>
       <div class="sb-section skills">
@@ -385,6 +412,17 @@
 
   <!-- ══ MAIN CONTENT ══════════════════════════════════════ -->
   <main class="main">
+
+    <!-- Mobile-only sticky nav (hidden on desktop via CSS) -->
+    <nav class="mobile-nav">
+      <a class="nav-link" href="#about">        <i class="fa-regular fa-user"></i>          About</a>
+      <a class="nav-link" href="#projects">     <i class="fa-solid fa-flask"></i>            Projects</a>
+      <a class="nav-link" href="#publications"> <i class="fa-regular fa-file-lines"></i>     Publications</a>
+      <a class="nav-link" href="#talks">        <i class="fa-solid fa-microphone-lines"></i> Talks</a>
+      <a class="nav-link" href="#awards">       <i class="fa-solid fa-trophy"></i>           Awards</a>
+    </nav>
+
+    <div class="main-content">
 
     <div class="hero" id="about">
       <div class="hero-label">PhD Candidate · George Mason University</div>
@@ -420,7 +458,17 @@
       <div id="talksList" style="display:flex;flex-direction:column;gap:.9rem"></div>
     </section>
 
+    <section class="section" id="awards">
+      <div class="section-header">
+        <h2>Awards &amp; Fellowships</h2>
+        <div class="section-line"></div>
+      </div>
+      <div id="awardsList" style="display:flex;flex-direction:column;gap:.75rem"></div>
+    </section>
+
     <footer>Built with care · <span id="updateYear"></span></footer>
+
+    </div><!-- /main-content -->
   </main>
 </div>
 
@@ -483,7 +531,7 @@
     $('eduList').appendChild(d);
   });
 
-  (data.awards||[]).forEach(a => $('awardsList').appendChild(make('div','award-item',a)));
+  (data.awards||[]).forEach(a => $('awardsList').appendChild(make('div','award-main-item',a)));
 
   ['Python','C/C++','PyTorch','TensorFlow','SNNTorch','LAVA','TENNLab','OpenCV','AWS/GCP','MongoDB','MATLAB']
     .forEach(s => $('skillsList').appendChild(make('span','skill-tag',s)));
@@ -541,7 +589,7 @@
     $('talksList').appendChild(item);
   });
 
-  ['about','projects','publications','talks'].forEach(id => {
+  ['about','projects','publications','talks','awards'].forEach(id => {
     const s = $(id); if (!s) return;
     new IntersectionObserver(entries => {
       entries.forEach(e => {
