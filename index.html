@@ -598,11 +598,10 @@
       .main { padding: 2.5rem 2rem; }
     }
 
-    /* Tablet + Mobile: sidebar becomes a top header */
+    /* Tablet + Mobile: sidebar becomes full-width top header */
     @media (max-width: 860px) {
-      .page-wrap {
-        grid-template-columns: 1fr;
-      }
+
+      .page-wrap { grid-template-columns: 1fr; }
 
       .sidebar {
         grid-column: 1;
@@ -610,54 +609,70 @@
         position: static;
         height: auto;
         overflow-y: visible;
+        width: 100%;
         flex-direction: column;
         gap: 0;
         padding: 0;
       }
 
-      /* Top identity bar: photo + name + links */
+      /* Identity block: centered photo + name */
       .sidebar-topbar {
-        display: flex;
+        flex-direction: column;
         align-items: center;
-        gap: 1.1rem;
-        padding: 1.25rem 1.5rem;
+        text-align: center;
+        padding: 2rem 1.5rem 1.25rem;
+        gap: 1rem;
+        width: 100%;
+      }
+      .sidebar-topbar .photo-placeholder {
+        width: 100px;
+        height: 100px;
+      }
+      .sidebar-topbar .photo-placeholder i { font-size: 1.8rem; }
+      .sidebar-topbar .photo-placeholder span { font-size: 0.6rem; }
+      #profilePhotoEl img {
+        width: 100px !important;
+        height: 100px !important;
+      }
+      .sidebar-identity { text-align: center; }
+      .sidebar-identity .sidebar-name { font-size: 1.35rem; }
+      .sidebar-identity .sidebar-title { font-size: 0.78rem; }
+      .sidebar-identity .sidebar-institution { justify-content: center; font-size: 0.72rem; }
+
+      /* Social icons: centered */
+      .sidebar-socialbar {
+        display: flex;
+        justify-content: center;
+        padding: 0.75rem 1.5rem 1rem;
         background: var(--ink);
       }
-      .sidebar-topbar .photo-placeholder,
-      .sidebar-topbar img.profile-img-mobile {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        object-fit: cover;
-        border: 2px solid rgba(255,255,255,.15);
-      }
-      .sidebar-topbar .photo-placeholder i { font-size: 1.4rem; }
-      .sidebar-topbar .photo-placeholder span { font-size: 0.55rem; }
-      .sidebar-identity { flex: 1; min-width: 0; }
-      .sidebar-identity .sidebar-name { font-size: 1.1rem; }
-      .sidebar-identity .sidebar-title { font-size: 0.72rem; }
-      .sidebar-identity .sidebar-institution { font-size: 0.68rem; }
+      .sidebar-socialbar .social-links { justify-content: center; }
+      .sidebar-socialbar .sidebar-section-title { display: none; }
 
-      /* Nav bar below topbar */
+      /* Nav: horizontal full-width tab bar */
       .sidebar-navbar {
         display: flex;
-        align-items: center;
-        gap: 2px;
-        padding: 0 1rem;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        padding: 0;
         background: #181e30;
+        border-bottom: 1px solid rgba(255,255,255,.08);
         overflow-x: auto;
         scrollbar-width: none;
-        border-bottom: 1px solid rgba(255,255,255,.06);
+        gap: 0;
       }
       .sidebar-navbar::-webkit-scrollbar { display: none; }
+      .sidebar-navbar .nav-label { display: none; }
       .sidebar-navbar .nav-link {
+        flex: 1;
+        justify-content: center;
         white-space: nowrap;
-        padding: 10px 12px;
+        padding: 11px 10px;
         border-radius: 0;
-        font-size: 0.78rem;
+        font-size: 0.8rem;
         border-bottom: 2px solid transparent;
-        flex-shrink: 0;
+        min-width: 70px;
       }
       .sidebar-navbar .nav-link.active,
       .sidebar-navbar .nav-link:hover {
@@ -665,55 +680,44 @@
         border-bottom-color: var(--accent);
         color: #fff;
       }
-      .sidebar-navbar .nav-label { display: none; }
 
-      /* Social links row */
-      .sidebar-socialbar {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 1.5rem;
-        background: #181e30;
-        flex-wrap: wrap;
-      }
-
-      /* All sidebar sections below nav: collapse into accordion or stack */
+      /* Info sections: 3-col grid */
       .sidebar-sections {
         background: #111520;
-        padding: 1.25rem 1.5rem;
+        padding: 1.5rem;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 1.5rem 2rem;
+        width: 100%;
       }
-      .sidebar-edu { grid-column: 1 / -1; }
-      .sidebar-awards { grid-column: 1 / -1; }
-      .sidebar-skills { grid-column: 1 / -1; }
-
-      /* Hide the original standalone social/nav divs (we replaced them) */
-      .sidebar > div:not(.sidebar-topbar):not(.sidebar-navbar):not(.sidebar-socialbar):not(.sidebar-sections) {
-        display: none;
-      }
-      .sidebar > nav { display: none; }
+      .sidebar-edu    { grid-column: 1 / -1; }
+      .sidebar-awards { grid-column: 1 / 2; }
+      .sidebar-skills { grid-column: 2 / 4; }
 
       .main { grid-row: 2; padding: 1.75rem 1.25rem; }
       .hero h1 { font-size: 1.9rem; }
     }
 
-    /* Mobile only */
+    /* Narrow phones */
     @media (max-width: 560px) {
-      .sidebar-topbar { padding: 1rem 1rem; gap: 0.9rem; }
-      .sidebar-sections { grid-template-columns: 1fr; padding: 1rem; gap: 1.25rem; }
+      .sidebar-topbar { padding: 1.5rem 1rem 1rem; }
+
+      .sidebar-sections {
+        grid-template-columns: 1fr;
+        padding: 1.25rem 1rem;
+        gap: 1.25rem;
+      }
       .sidebar-edu, .sidebar-awards, .sidebar-skills { grid-column: 1; }
+
+      .sidebar-navbar .nav-link { font-size: 0.75rem; padding: 10px 8px; }
 
       .main { padding: 1.25rem 0.9rem; }
       .hero { padding: 1.25rem; border-radius: var(--radius-md); }
-      .hero h1 { font-size: 1.55rem; }
+      .hero h1 { font-size: 1.5rem; }
 
       .card { grid-template-columns: 1fr; }
       .card-image { min-height: 130px; }
-      .section-header h2 { font-size: 1.35rem; }
-
-      .sidebar-socialbar { padding: 8px 1rem; }
+      .section-header h2 { font-size: 1.3rem; }
     }
 
     /* Print */
